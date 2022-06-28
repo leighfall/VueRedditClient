@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <SubReddit :topic="subreddit.subreddit"/>
+  <SubReddit :topic="state.subreddit"/>
 </template>
 
 <script setup>
-import subreddit from '@/store/diy.js';
+import state from '@/store/diy';
 import SubReddit from './SubReddit.vue';
 </script>

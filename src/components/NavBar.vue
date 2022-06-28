@@ -48,7 +48,6 @@ const vMyDirective = {
           }
           return all;
         }, {});
-      console.log(results) //fixme
       instance.updateData(results);
       instance.open();
     }

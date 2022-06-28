@@ -24,13 +24,11 @@ const props = defineProps({
   post: Object, 
 });
 
+const isVideo = computed(() => (props.post.secure_media && props.post.secure_media.reddit_video));
 const isImage = computed(() => props.post.url.match(/webp|png|jpg|jpeg|gif|bmp$/));
-const isVideo = computed(() => props.post.media || props.post.url.match(/mp4|gifv|mkv|mov|webm$/));
 const videoUrl = computed(() => {
-  if (props.post.media) {
-    console.log(props.post.media);
-    return;
-    // return props.post.media.reddit_video.scrubber_media_url;
+  if (props.post.secure_media && props.post.secure_media.reddit_video) {
+    return props.post.media.reddit_video.fallback_url;
   }
   let parts = [];
   try {
