@@ -2,7 +2,11 @@
 
 This is a Vue3 project using the Reddit API to build a web application that loads Reddit posts.
 
-It is modeled after <a href="https://www.youtube.com/watch?v=hAIWMGx4AL8" target="_blank">CodingGarden's</a> Twitch stream.
+It is modeled after <a href="https://coding.garden/#/" target="_blank">Coding Garden's</a> Twitch streams that are available on YouTube:
+
+- <a href="https://www.youtube.com/watch?v=Fzpe7zeSRno" target="_blank">Working on a Reddit Client with the Vue 3 Composition API | Part 1</a>
+- <a href="https://www.youtube.com/watch?v=hAIWMGx4AL8" target="_blank">Working on a Reddit Client with the Vue 3 Composition API | Part 2</a>
+- <a href="https://www.youtube.com/watch?v=M8KzIYsxChs" target="_blank">Working on a Reddit Client with the Vue 3 Composition API | Part 3</a>
 
 Some note-worthy differences from the stream:
 
