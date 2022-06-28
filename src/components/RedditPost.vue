@@ -1,6 +1,14 @@
 <template>
   <div class="col s12">
     <div class="card post">
+      <div class="card-content title-info">
+        <span class="card-title vertical-center">
+          {{props.post?.title}}
+        </span>
+        <p>
+          Posted {{props.post.created_utc}}
+        </p>
+      </div>
       <div v-if="isVideo" class="card-image waves-effect waves-block waves-light">
         <video class="activator video" controls muted autoplay loop>
           <source type="video/mp4" :src="videoUrl" />
@@ -10,7 +18,6 @@
         <img class="activator" :src="post.url" />
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">{{ props.post?.title }}</span>
         <p><a :href="`https://www.reddit.com${post.permalink}`">Comments</a></p>
       </div>
     </div>
@@ -23,6 +30,11 @@ import { computed } from 'vue';
 const props = defineProps({
   post: Object, 
 });
+
+// todo create date converter from utc to date
+// function postTime(() => {
+//   const 
+// });
 
 const isVideo = computed(() => (props.post.secure_media && props.post.secure_media.reddit_video));
 const isImage = computed(() => props.post.url.match(/webp|png|jpg|jpeg|gif|bmp$/));

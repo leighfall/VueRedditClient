@@ -15,8 +15,6 @@ export default function usePosts(subreddit, params = {}) {
       postsState.error = '';
       postsState.data = [];
 
-      console.log(subreddit.value);
-
       const response = await API.getPosts(subreddit.value, params);
       postsState.data = response.data.children;
     } catch (error) {
