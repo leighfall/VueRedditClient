@@ -1,15 +1,9 @@
-<script lang="ts">
-  export default {
-    name: 'Home',
-  };
-</script>
-
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="home">
-    REDDIT CLIENT
-  </div>
+  <SubReddit :topic="subreddit.subreddit"/>
 </template>
 
-<style scoped>
-
-</style>
+<script setup>
+import subreddit from '@/store/diy.js';
+import SubReddit from './SubReddit.vue';
+</script>

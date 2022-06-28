@@ -1,13 +1,14 @@
-<!-- eslint-disable prettier/prettier -->
-<script setup lang="ts">
-
-</script>
-
 <template>
-
-  <RouterView />
+  <NavBar />
+  <RouterView class="container" />
 </template>
 
-<style lang="scss">
+<script setup>
+import NavBar from '@/components/NavBar.vue';
+</script>
 
+<style>
+body {
+  background-color:  #ffcdd2;
+}
 </style>
