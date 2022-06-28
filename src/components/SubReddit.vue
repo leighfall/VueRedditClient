@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div v-if="postsState.loading" class="progress">
-      <div class="indeterminate"></div>
+    <div v-if="postsState.loading" class="progress red accent-1">
+      <div class="indeterminate red accent-3"></div>
     </div>
     <div class="row">
       <div class="col s12 m6">

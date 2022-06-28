@@ -1,9 +1,9 @@
 <template>
   <nav>
     <div class="nav-wrapper">
-      <form>
+      <form @submit.prevent="updateSubreddit">
         <div class="input-field">
-          <input v-my-directive @blur="updateSubreddit" v-model="searchTerm" ref="subreddit" id="subreddit" class="autocomplete" type="search" required>
+          <input v-my-directive v-model="searchTerm" ref="subreddit" id="subreddit" class="autocomplete" type="search" autocomplete="off">
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
@@ -18,13 +18,22 @@ import { ref, watch } from 'vue';
 import API from '@/API.js';
 import state from '@/store/diy.js';
 
+let instance;
+let debounceTimeout;
 const searchTerm = ref('');
 const subreddit = ref(null);
-
+const updateSubreddit = () => {
+  //todo fix when hitting enter that it doesn't close the autocomplete
+  clearTimeout(debounceTimeout);
+  state.subreddit.value = `r/${searchTerm.value}`;
+  if (subreddit.value) {
+    subreddit.value.blur();
+  }
+}
 const vMyDirective = {
   mounted: () => {
     // eslint-disable-next-line no-undef
-    const instance = M.Autocomplete.init(subreddit.value, {
+    instance = M.Autocomplete.init(subreddit.value, {
       data: {},
       onAutocomplete(result) {
         state.subreddit.value = `r/${result}`;
@@ -52,7 +61,6 @@ const vMyDirective = {
       instance.open();
     }
 
-    let debounceTimeout;
     watch(() => searchTerm.value, () => {
       clearTimeout(debounceTimeout);
       debounceTimeout = setTimeout(() => {
