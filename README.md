@@ -2,6 +2,8 @@
 
 This is a Vue3 project using the Reddit API to build a web application that loads Reddit posts.
 
+You can view the application at <a href="https://vue3-reddit-client.surge.sh/">vue3-reddit-client.surge.sh</a>!! It is still a work-in-progress!
+
 It is modeled after <a href="https://coding.garden/#/" target="_blank">Coding Garden's</a> Twitch streams that are available on YouTube:
 
 - <a href="https://www.youtube.com/watch?v=Fzpe7zeSRno" target="_blank">Working on a Reddit Client with the Vue 3 Composition API | Part 1</a>
