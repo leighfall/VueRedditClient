@@ -16,27 +16,40 @@
 import { ref, watch } from 'vue';
 
 import API from '@/API.js';
-import state from '@/store/diy.js';
+import { useRouter } from 'vue-router';
 
 let instance;
 let debounceTimeout;
 const searchTerm = ref('');
 const subreddit = ref(null);
+const router = useRouter();
+
 const updateSubreddit = () => {
   //todo fix when hitting enter that it doesn't close the autocomplete
   clearTimeout(debounceTimeout);
-  state.subreddit.value = `r/${searchTerm.value}`;
+  router.push({
+    name: 'Subreddit',
+    params: {
+      subreddit: searchTerm.value,
+    },
+  });
   if (subreddit.value) {
     subreddit.value.blur();
   }
 }
+
 const vMyDirective = {
   mounted: () => {
     // eslint-disable-next-line no-undef
     instance = M.Autocomplete.init(subreddit.value, {
       data: {},
       onAutocomplete(result) {
-        state.subreddit.value = `r/${result}`;
+        router.push({
+          name: 'Subreddit',
+          params: {
+            subreddit: result,
+          },
+        });
       },
     });
 

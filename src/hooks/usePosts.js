@@ -24,7 +24,7 @@ export default function usePosts(subreddit, params = {}) {
     }
   }
 
-  watch(() => subreddit.value, loadData, { immediate: true });
+  watch(subreddit, loadData, { immediate: true });
 
   return postsState;
 }

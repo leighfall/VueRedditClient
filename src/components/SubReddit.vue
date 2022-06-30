@@ -20,14 +20,13 @@
 
 <script setup>
 import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 import RedditPost from './RedditPost.vue';
 import usePosts from '../hooks/usePosts.js';
 
-const props = defineProps({
-  topic: String,
-});
-
-const postsState = usePosts(props.topic);
+const route = useRoute();
+const subreddit = computed(() => `/r/${route.params.subreddit}`);
+const postsState = usePosts(subreddit);
 const posts = computed(() => postsState.data.filter(child => !child.data.over_18).map((child) => child.data));
 </script>

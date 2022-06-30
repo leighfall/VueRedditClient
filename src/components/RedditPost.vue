@@ -6,7 +6,7 @@
           {{props.post?.title}}
         </span>
         <p>
-          Posted {{props.post.created_utc}}
+          Posted {{postTime}}
         </p>
       </div>
       <div v-if="isVideo" class="card-image waves-effect waves-block waves-light">
@@ -26,16 +26,16 @@
 
 <script setup>
 import { computed } from 'vue';
+// import moment from 'moment';
 
 const props = defineProps({
   post: Object, 
 });
 
 // todo create date converter from utc to date
-// function postTime(() => {
-//   const 
-// });
+// moment.utc(props.post.data.child.data.created).local().format();
 
+const postTime = "";
 const isVideo = computed(() => (props.post.secure_media && props.post.secure_media.reddit_video));
 const isImage = computed(() => props.post.url.match(/webp|png|jpg|jpeg|gif|bmp$/));
 const videoUrl = computed(() => {
