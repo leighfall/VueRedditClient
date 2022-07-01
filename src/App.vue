@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <RouterView v-my-directive class="container" />
+  <RouterView class="container" />
 </template>
 
 <script setup>
@@ -18,17 +18,6 @@ if (route.name !== 'Subreddit') {
     },
   });
 }
-
-const vMyDirective = {
-  created: () => {
-    console.log('Created'); //fixme
-    console.log(route.name); //fixme
-  },
-  mounted: () => {
-    console.log('mounted'); //fixme
-    console.log(route.name); //fixme
-  },
-};
 </script>
 
 <style>

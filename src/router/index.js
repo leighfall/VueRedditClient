@@ -10,6 +10,16 @@ const router = createRouter({
       component: Subreddit,
     }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'Subreddit' ) next({ 
+    name: 'Subreddit', 
+    Params: {
+      subreddit: 'kittens',
+    },
+  })
+  else next();
+});
 
 export default router
