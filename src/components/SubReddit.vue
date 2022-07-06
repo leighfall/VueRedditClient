@@ -92,6 +92,7 @@ justify-content: flex-start;
 }
 .icon {
   flex: 1;
+  max-width: 10%;
 }
 
 .img {

@@ -26,16 +26,13 @@
 
 <script setup>
 import { computed } from 'vue';
-// import moment from 'moment';
+import fromUnixTime from 'date-fns/fromUnixTime'
 
 const props = defineProps({
   post: Object, 
 });
 
-// todo create date converter from utc to date
-// moment.utc(props.post.data.child.data.created).local().format();
-
-const postTime = "";
+const postTime = computed(() => fromUnixTime(props.post.created));
 const isVideo = computed(() => (props.post.secure_media && props.post.secure_media.reddit_video));
 const isImage = computed(() => props.post.url.match(/webp|png|jpg|jpeg|gif|bmp$/));
 const videoUrl = computed(() => {
