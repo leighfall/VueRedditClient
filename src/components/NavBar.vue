@@ -14,9 +14,10 @@
 
 <script setup>
 import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
 
 import API from '@/API.js';
-import { useRouter } from 'vue-router';
+import M from "materialize-css";
 
 let instance;
 let debounceTimeout;
@@ -40,7 +41,6 @@ const updateSubreddit = () => {
 
 const vMyDirective = {
   mounted: () => {
-    // eslint-disable-next-line no-undef
     instance = M.Autocomplete.init(subreddit.value, {
       data: {},
       onAutocomplete(result) {

@@ -30,6 +30,10 @@ body {
   overflow: hidden;
 }
 
+.container {
+  max-width: 800px;
+}
+
 #app {
   width: 100%;
   height: 100%;
